@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Budget Tracking for Self-Employed</title>
+        <!--  -->
+        <script>
+            //Name function:
+            function addRows(){
+	            var table = document.getElementById('emptbl');//storing the table element in the "table variable"
+	            var rowCount = table.rows.length; //get the number of rows in the table
+	            var cellCount = table.rows[0].cells.length; //get the number of columns in the table
+	            var row = table.insertRow(rowCount); //created an empty row using the JavaScript property
+	            for(var i =0; i <= cellCount; i++){ //dynamically generated the cells within the empty row
+		            var cell = 'cell'+i;
+		            cell = row.insertCell(i);
+		            var copycel = document.getElementById('col'+i).innerHTML; // take the name of col + the number
+		            cell.innerHTML=copycel;
+				}
+			}
+
+        function deleteRows(){
+	        var table = document.getElementById('emptbl');
+	        var rowCount = table.rows.length;
+	        if(rowCount > '2'){
+		        var row = table.deleteRow(rowCount-1);
+		        rowCount--;
+	        }
+	        else{
+		        alert('There should be atleast one row');
+	        }
+}
+        </script>
+    </head>
+
+    <body>
+     <!--  -->
+    <h3>Yearly Budget</h3>
+    <table id="emptbl" border="1">
+        <!--Header Row-->
+        <thead>
+            <tr>
+                <td>Category</td>
+                <td>January</td>
+                <td>February</td>
+                <td>March</td>
+                <td>April</td>
+                <td>May</td>
+                <td>June</td>
+                <td>July</td>
+                <td>August</td>
+                <td>September</td>
+                <td>October</td>
+                <td>November</td>
+                <td>December</td>
+            </tr>
+        </thead>
+        <!--First Category Spending Row-->
+        <tr>
+            <td id="col0"><input type="text" name="Category"/></td>
+            <td id="col1"><input type="number" name="January"/></td>
+            <td id="col2"><input type="number" name="February"/></td>
+            <td id="col3"><input type="number" name="March"/></td>
+            <td id="col4"><input type="number" name="April"/></td>
+            <td id="col5"><input type="number" name="May"/></td>
+            <td id="col6"><input type="number" name="June"/></td>
+            <td id="col7"><input type="number" name="July"/></td>
+            <td id="col8"><input type="number" name="August"/></td>
+            <td id="col9"><input type="number" name="September"/></td>
+            <td id="col10"><input type="number" name="October"/></td>
+            <td id="col11"><input type="number" name="November"/></td>
+            <td id="col12"><input type="number" name="December"/></td>
+        </tr>
+    </table>
+    <!-- Buttons for Yearly Budget -->
+    <table>
+		<tr>
+			<td><input type="button" value="Add Row" onclick="addRows()" /></td>
+			<td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>
+			<td><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+
+    <br>
+
+    <h3>Category Name</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Status</td>
+                <td>Billing</td>
+                <td>Monthly Costs</td>
+                <td>Yearly Costs</td>
+                <td>Costs</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="col0"><input type="text" name="Name"/></td>
+                <td id="col1"><input type="radio" id="active" name="status" value="Active"/>
+                <label for="monthly">Active</label>
+                <input type="radio" id="oh_hold" name="status" value="Oh Hold"/>
+                <label for="yearly">Oh Hold</label>
+                <input type="radio" id="canceled" name="status" value="Canceled"/>
+                <label for="yearly">Canceled</label>
+                <input type="radio" id="lifetime" name="status" value="Lifetime"/>
+                <label for="yearly">Lifetime</label></td>
+                <td id="col2"><input type="radio" id="monthly" name="billing" value="Monthly"/>
+                <label for="monthly">Monthly</label>
+                <input type="radio" id="yearly" name="billing" value="Yearly"/>
+                <label for="yearly">Yearly</label>
+                <input type="radio" id="3_times_a_year" name="billing" value="3 Times a Year"/>
+                <label for="yearly">3 Times a Year</label>
+                <input type="radio" id="2_times_a_year" name="billing" value="2 Times a Year"/>
+                <label for="yearly">2 Times a Year</label>
+                </td>
+
+
+                <td id="col0"><input type="text" name="Name"/></td>
+                <td id="col0"><input type="text" name="Name"/></td>
+                <td id="col0"><input type="text" name="Name"/></td>
+            </tr>
+        </tbody>
+    </table>
+
+        <!-- Buttons for Category#1 Budget -->
+        <table>
+            <tr>
+                <td><input type="button" value="Add Row" onclick="addRows()" /></td>
+                <td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+     <!-- Fix the buttons of Category#1 -->
+     <!-- Implement Add Category Table -->
+    <!--  Sync tables fuction-->
+    </body>
+</html>

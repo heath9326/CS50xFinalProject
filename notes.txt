@@ -1,0 +1,68 @@
+scan your notebook for the background
+
+things I am learning
+-How to add differen laguage to a page
+-To make an adjustable table
+
+Things to add in the future
+
+
+Why programming
+Art taught me to go from big to small and work systemically
+
+
+
+15/07/2022
+Sourses
+https://community.jamasoftware.com/blogs/carmen-lastname/2016/12/06/how-to-add-multiple-rows-andor-columns-to-a-table-in-the-rich-text-editor-rte#:~:text=Add%20Columns&text=In%20order%20to%20add%20a,through%20a%20quick%20web%20search.
+https://blogs.perficient.com/2021/01/18/freezing-row-and-column-in-html-table-using-css/#:~:text=To%20freeze%20the%20row%2Fcolumn,property%20of%20the%20DIV%20element.
+https://stackoverflow.com/questions/35392349/how-to-set-unique-name-and-id-of-html-table-columns-which-are-dynamically-create
+
+Remove errors https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp
+Read on ajax to upae the page dymanically
+https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_radio
+
+
+19/07'
+https://www.codegrepper.com/code-examples/javascript/javascript+click+eventlistener+on+id
+https://www.codegrepper.com/code-examples/javascript/get+element+id+when+clicked+javascript
+https://www.howtocodeschool.com/2021/03/get-id-of-clicked-element-using-javascript.html
+https://learn.javascript.ru/searching-elements-dom
+https://stackoverflow.com/questions/69745845/add-the-same-event-listener-to-all-buttons-with-for-of-loop
+https://www.delftstack.com/howto/javascript/multiple-javascript-functions-in-onclick-event/#:~:text=Remarks,and%20for%20most%20HTML%20elements.
+
+                if (typeof btn_clickedID !== "undefined"){
+                    alert("Defined");
+                }
+                else{
+                    alert("Undefined!");
+                }
+
+                var table = btn_clicked.closest(".table");
+                //Acount for Null:
+                if (table == null){
+                    alert("Table Not Found!");
+                }
+                else{
+                    alert("Table Found!");
+                }
+
+22/07
+https://stackoverflow.com/questions/14643617/create-table-using-javascript
+https://stackoverflow.com/questions/14473207/how-can-i-give-an-array-as-options-to-select-element
+
+
+25.07
+https://stackoverflow.com/questions/8854543/calculate-numbers-in-html-table-with-javascript
+
+
+     <!-- Implement Add Category Table -->
+     <!-- iNSERT IN A CERTAIN PLACE
+            ADD ROW BUTTON DOES NOT WORK-->
+    <!--  Sync tables fuction-->
+    <!--  Create a variable to keep track of all the categories and insert it into an id-->
+    <!-- Math should sync between tables-->
+    <!-- Put code into a ceparate document-->
+
+    <!--NEED TO USE EVENT TARGET INSTEAD OF ID BECAUSE ALL BUTTONS HAVE THE SAME ID
+    (CAN BE FIXED THROIUGH DYAMIALLY CHANGING IDS OR USING EVENT TARGET)-->
