@@ -66,3 +66,5 @@ https://stackoverflow.com/questions/8854543/calculate-numbers-in-html-table-with
 
     <!--NEED TO USE EVENT TARGET INSTEAD OF ID BECAUSE ALL BUTTONS HAVE THE SAME ID
     (CAN BE FIXED THROIUGH DYAMIALLY CHANGING IDS OR USING EVENT TARGET)-->
+
+    https://code.visualstudio.com/docs/python/tutorial-flask
