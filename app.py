@@ -5,11 +5,12 @@ from flask import Flask, flash, redirect, render_template, request, session
 # Configure application
 app = Flask(__name__)
 
-@app.route("/index", methods=["GET", "POST"])
+@app.route("/")
 def index():
-    if request.method == "POST":
-        return "Set up a DB first"
-    return render_template("index.html")
+    return render_template("layout.html")
+    
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    DEBUG = True
+    HOST = '0.0.0.0'
+    app.run(debug=DEBUG, host=HOST)
