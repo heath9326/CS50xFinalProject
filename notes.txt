@@ -1,3 +1,5 @@
+Add A lil year select menu on top
+
 scan your notebook for the background
 
 things I am learning
