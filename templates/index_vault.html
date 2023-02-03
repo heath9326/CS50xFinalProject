@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Budget Tracking for Self-Employed</title>
+        <!--  -->
+        <script>
+            // Establish an array of categories
+            const categories = [];
+            //on submit category button add name of the category to the array of the categories
+
+
+            //Name function:
+            function addRows(){
+                // Test to see if the browser supports the HTML template element by checking
+                // for the presence of the template element's content attribute.
+                if ('content' in document.createElement('template')) {
+
+                    //Find button ID;
+                    var btn_clickedID = event.target.id;
+                    //Find button using ID;
+                    var btn_clicked = document.getElementById(btn_clickedID);
+
+                    //Find table element using .closest and previousElementSibling;
+                    var table = btn_clicked.closest(".buttons").previousElementSibling;
+                    var form = table.parentNode;
+                    // Instantiate the table with the existing HTML tbody and the row with the template
+                    var tbody = table.querySelector("tbody");
+                    var template = form.querySelector('.template_row');
+
+                    // Clone the new row and insert it into the table;
+                    var clone = template.content.cloneNode(true);
+
+                    tbody.appendChild(clone);
+                } else {
+                // Find another way to add the rows to the table because
+                // the HTML template element is not supported.
+                alert("HTML template element not found");
+                }
+            }
+
+        function deleteRows(){
+            //Find button ID;
+            var btn_clickedID = event.target.id;
+            //Find button using ID;
+            var btn_clicked = document.getElementById(btn_clickedID);
+            //Find table elment using .closest and previousElementSibling
+            var table = btn_clicked.closest(".buttons").previousElementSibling;
+	        var rowCount = table.rows.length;
+	        if(rowCount > '2'){
+		        var row = table.deleteRow(rowCount-1);
+		        rowCount--;
+	        }
+	        else{
+		        alert('There should be atleast one row');
+	        }
+        }
+
+        function addCategory(){
+            var button = document.getElementById('add_category');
+            var template = document.querySelector('.template_category');
+
+            // Clone the table and insert it into the before the button
+            var clone = template.content.cloneNode(true);
+            button.before(clone);
+        }
+
+        function syncCategory(){
+            //when button is clicked
+            //take the name from caption.value and summ of the category and add it to the early budget
+            //and add to the list categories as key = name
+            //value = summ
+        }
+
+        //function addCategory(){
+        //    const body = document.body;
+        //    var template = document.querySelector('.template_category');
+
+            // Clone the new row and insert it into the table
+        //    var clone = template.content.cloneNode(true);
+        //    body.appendChild(clone);
+        //}
+
+
+
+        //WIP
+
+        //Movement table
+        //var table = document.getElementById("tbl_movement");
+        //var rowCount = table.rows.length;
+        //for (var i = 0; i <=rowCount; i++){
+            //if (table.row[i].cell[2].value = movement){
+                //Code for incert Cell here
+            //}
+        //}
+        </script>
+    </head>
+
+    <body>
+     <!--Yearly Budget-->
+    <form>
+        <caption>Yearly Budget DA</caption>
+        <table class="table" border="1" id="yes">
+            <!--Header Row-->
+            <thead>
+                <tr>
+                    <td>Category Name</td>
+                    <td>January</td>
+                    <td>February</td>
+                    <td>March</td>
+                    <td>April</td>
+                    <td>May</td>
+                    <td>June</td>
+                    <td>July</td>
+                    <td>August</td>
+                    <td>September</td>
+                    <td>October</td>
+                    <td>November</td>
+                    <td>December</td>
+                </tr>
+            </thead>
+            <!--First Category Spending Row-->
+            <tr>
+                <td id="yb_col0"><input type="text" name="Category Name"/></td>
+                <td id="yb_col1"><input type="number" name="January"/></td>
+                <td id="yb_col2"><input type="number" name="February"/></td>
+                <td id="yb_col3"><input type="number" name="March"/></td>
+                <td id="yb_col4"><input type="number" name="April"/></td>
+                <td id="yb_col5"><input type="number" name="May"/></td>
+                <td id="yb_col6"><input type="number" name="June"/></td>
+                <td id="yb_col7"><input type="number" name="July"/></td>
+                <td id="yb_col8"><input type="number" name="August"/></td>
+                <td id="yb_col9"><input type="number" name="September"/></td>
+                <td id="yb_col10"><input type="number" name="October"/></td>
+                <td id="yb_col11"><input type="number" name="November"/></td>
+                <td id="yb_col12"><input type="number" name="December"/></td>
+            </tr>
+        </table>
+        <!-- Buttons for Yearly Budget -->
+        <table class="buttons">
+            <tr>
+                <td><input type="button" value="Add Row" onclick="addRows()" id="yearly_budget_add"/></td>
+                <td><input type="button" value="Delete Row" onclick="deleteRows()" id="yearly_budget_delete" /></td>
+                <td><input type="submit" value="Submit" id="yearly_budget_submit"/></td>
+            </tr>
+        </table>
+
+        <template class="template_row" id="yb_row">
+            <tr>
+                <td id="yb_col0"><input type="text" name="Category Name"/></td>
+                <td id="yb_col1"><input type="number" name="January"/></td>
+                <td id="yb_col2"><input type="number" name="February"/></td>
+                <td id="yb_col3"><input type="number" name="March"/></td>
+                <td id="yb_col4"><input type="number" name="April"/></td>
+                <td id="yb_col5"><input type="number" name="May"/></td>
+                <td id="yb_col6"><input type="number" name="June"/></td>
+                <td id="yb_col7"><input type="number" name="July"/></td>
+                <td id="yb_col8"><input type="number" name="August"/></td>
+                <td id="yb_col9"><input type="number" name="September"/></td>
+                <td id="yb_col10"><input type="number" name="October"/></td>
+                <td id="yb_col11"><input type="number" name="November"/></td>
+                <td id="yb_col12"><input type="number" name="December"/></td>
+            </tr>
+        </template>
+
+    </form>
+
+    <br>
+    <!-- Category Tables -->
+    <h3>Spending Categories</h3>
+    <form>
+        <caption><input type="text" placeholder="Category Name"/></caption>
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <td>Subcategory Name</td>
+                    <td>Status</td>
+                    <td>Billing</td>
+                    <td>Monthly Costs</td>
+                    <td>Yearly Costs</td>
+                    <td>Costs</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="c(n)_col0"><input type="text" name="Subcategory Name"/></td>
+                    <td id="c(n)_col1"><input type="radio" id="active" name="status" value="Active"/>
+                    <label for="monthly">Active</label>
+                    <input type="radio" id="oh_hold" name="status" value="Oh Hold"/>
+                    <label for="yearly">Oh Hold</label>
+                    <input type="radio" id="canceled" name="status" value="Canceled"/>
+                    <label for="yearly">Canceled</label>
+                    <input type="radio" id="lifetime" name="status" value="Lifetime"/>
+                    <label for="yearly">Lifetime</label></td>
+                    <td id="c(n)_col2"><input type="radio" id="monthly" name="billing" value="Monthly"/>
+                    <label for="monthly">Monthly</label>
+                    <input type="radio" id="yearly" name="billing" value="Yearly"/>
+                    <label for="yearly">Yearly</label>
+                    <input type="radio" id="3_times_a_year" name="billing" value="3 Times a Year"/>
+                    <label for="yearly">3 Times a Year</label>
+                    <input type="radio" id="2_times_a_year" name="billing" value="2 Times a Year"/>
+                    <label for="yearly">2 Times a Year</label>
+                    </td>
+                    <td id="c(n)_col3"><input type="number" name="Monthly Costs"/></td>
+                    <td id="c(n)_col4"><input type="number" name="Yearly Costs"/></td>
+                    <td id="c(n)_col5"><input type="number" name="Costs"/></td>
+                </tr>
+            </tbody>
+        </table>
+
+            <!-- Buttons for Category#1 Budget -->
+        <table class="buttons">
+            <tr>
+                <td><input type="button" value="Add Row" onclick="addRows()" id="category(n)_add"/></td>
+                <td><input type="button" value="Delete Row" onclick="deleteRows()" id="category(n)_delete" /></td>
+                <td><input type="submit" value="Submit" id="category(n)_submit"/></td>
+            </tr>
+        </table>
+
+        <template class="template_row">
+            <tr>
+                <td id="c(n)_col0"><input type="text" name="Subcategory Name"/></td>
+                <td id="c(n)_col1"><input type="radio" id="active" name="status" value="Active"/>
+                <label for="monthly">Active</label>
+                <input type="radio" id="oh_hold" name="status" value="Oh Hold"/>
+                <label for="yearly">Oh Hold</label>
+                <input type="radio" id="canceled" name="status" value="Canceled"/>
+                <label for="yearly">Canceled</label>
+                <input type="radio" id="lifetime" name="status" value="Lifetime"/>
+                <label for="yearly">Lifetime</label></td>
+                <td id="c(n)_col2"><input type="radio" id="monthly" name="billing" value="Monthly"/>
+                <label for="monthly">Monthly</label>
+                <input type="radio" id="yearly" name="billing" value="Yearly"/>
+                <label for="yearly">Yearly</label>
+                <input type="radio" id="3_times_a_year" name="billing" value="3 Times a Year"/>
+                <label for="yearly">3 Times a Year</label>
+                <input type="radio" id="2_times_a_year" name="billing" value="2 Times a Year"/>
+                <label for="yearly">2 Times a Year</label>
+                </td>
+                <td id="c(n)_col3"><input type="number" name="Monthly Costs"/></td>
+                <td id="c(n)_col4"><input type="number" name="Yearly Costs"/></td>
+                <td id="c(n)_col5"><input type="number" name="Costs"/></td>
+            </tr>
+        </template>
+    </form>
+
+     <!-- Category Template -->
+    <template class="template_category">
+        <br>
+        <form>
+            <caption><input type="text" placeholder="Category Name"/></caption>
+            <table class="table" border="1">
+                <thead>
+                    <tr>
+                        <td>Subcategory Name</td>
+                        <td>Status</td>
+                        <td>Billing</td>
+                        <td>Monthly Costs</td>
+                        <td>Yearly Costs</td>
+                        <td>Costs</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="c(n)_col0"><input type="text" name="Subcategory Name"/></td>
+                        <td id="c(n)_col1"><input type="radio" id="active" name="status" value="Active"/>
+                        <label for="monthly">Active</label>
+                        <input type="radio" id="oh_hold" name="status" value="Oh Hold"/>
+                        <label for="yearly">Oh Hold</label>
+                        <input type="radio" id="canceled" name="status" value="Canceled"/>
+                        <label for="yearly">Canceled</label>
+                        <input type="radio" id="lifetime" name="status" value="Lifetime"/>
+                        <label for="yearly">Lifetime</label></td>
+                        <td id="c(n)_col2"><input type="radio" id="monthly" name="billing" value="Monthly"/>
+                        <label for="monthly">Monthly</label>
+                        <input type="radio" id="yearly" name="billing" value="Yearly"/>
+                        <label for="yearly">Yearly</label>
+                        <input type="radio" id="3_times_a_year" name="billing" value="3 Times a Year"/>
+                        <label for="yearly">3 Times a Year</label>
+                        <input type="radio" id="2_times_a_year" name="billing" value="2 Times a Year"/>
+                        <label for="yearly">2 Times a Year</label>
+                        </td>
+                        <td id="c(n)_col3"><input type="number" name="Monthly Costs"/></td>
+                        <td id="c(n)_col4"><input type="number" name="Yearly Costs"/></td>
+                        <td id="c(n)_col5"><input type="number" name="Costs"/></td>
+                    </tr>
+                </tbody>
+            </table>
+
+                <!-- Buttons for Category#1 Budget -->
+            <table class="buttons">
+                <tr>
+                    <td><input type="button" value="Add Row" onclick="addRows()" id="category(n)_add"/></td>
+                    <td><input type="button" value="Delete Row" onclick="deleteRows()" id="category(n)_delete" /></td>
+                    <td><input type="submit" value="Submit" id="category(n)_submit"/></td>
+                </tr>
+            </table>
+        </form>
+    </template>
+    <br>
+    <input type="button" value="Add Category" onclick="addCategory()" id="add_category"/>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+     <!-- Funds Movement -->
+     <form>
+        <caption>Funds Movement</caption>
+        <table class="table" border="1" id="tbl_movement">
+            <thead>
+                <tr>
+                    <td>Date</td>
+                    <td>Type</td>
+                    <td>Direction</td>
+                    <td>Ammount</td> <!--Use this ammount to update table one-->
+                    <!-- If funds movement chosen then cell to documed what category to what ategory funds are moved to and from-->
+                    <!-- That cell should have dropdown menu of all the categories from Table one-->
+                    <!-- Need a list keeping track ofhow many categories are total AND list of all of their names-->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="mvmnt_col0">
+                        <input type="date" id="transaction_date" name="Transaction Date">
+                        <label for="date"></label>
+                        <input type="submit"
+                        style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+                        tabindex="-1"/>
+                    </td>
+                    <td id="mvmnt_col1"><label for="type"></label><!--Dropdown menu to choose between Income and Funds movement-->
+                        <select id="types" name="types">
+                          <option value="income">Income</option>
+                          <option value="transfer">Transfer</option>
+                        </select>
+                        <input type="submit"
+                        style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+                        tabindex="-1"/>
+                    </td>
+                    <td id="mvmnt_col2">
+                        <!--This should be populated by all categories arrays-->
+                          <select id="types" name="types">
+                          </select>
+                          <span>---></span>
+                          <select id="types" name="types">
+                          </select>
+                          <input type="submit"
+                          style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+                          tabindex="-1"/>
+                    </td>
+                    <td id="mvmnt_col3"><input type="number" name="Ammount"/></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Buttons for Movement Table -->
+        <table class="buttons">
+            <tr>
+                <td><input type="button" value="Add Row" onclick="addRows()" id="movement_add"/></td>
+                <td><input type="button" value="Delete Row" onclick="deleteRows()" id="movement_delete" /></td>
+                <td><input type="submit" value="Submit" id="movement_submit"/></td>
+            </tr>
+        </table>
+
+        <template>
+
+        </template>
+     </form>
+
+     <!-- Implement Add Category Table -->
+     <!-- iNSERT IN A CERTAIN PLACE
+            ADD ROW BUTTON DOES NOT WORK-->
+    <!--  Sync tables fuction-->
+    <!--  Create a variable to keep track of all the categories and insert it into an id-->
+    <!-- Math should sync between tables-->
+    <!-- Put code into a ceparate document-->
+
+    <!--NEED TO USE EVENT TARGET INSTEAD OF ID BECAUSE ALL BUTTONS HAVE THE SAME ID
+    (CAN BE FIXED THROIUGH DYAMIALLY CHANGING IDS OR USING EVENT TARGET)-->
+    </body>
+</html>
