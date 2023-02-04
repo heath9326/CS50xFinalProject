@@ -1,3 +1,17 @@
 h1 {
-  color: blue;
+  color: red;
+}
+
+title {
+  color: yellow;
+}
+
+form td {
+  text-align: center;
+}
+form table {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 5px;
 }/*# sourceMappingURL=styles.css.map */
