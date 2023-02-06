@@ -23,6 +23,7 @@ def db_connection():
 
 @app.route("/", methods=["GET", "POST"])
 def index():
+    # region
     # Variables, lists and dicts:
     months = [{'name': 'January', 'number': '1'}, 
                 {'name': 'February', 'number': '2'},
@@ -36,7 +37,31 @@ def index():
                 {'name': 'October', 'number': '10'},
                 {'name': 'November', 'number': '11'},
                 {'name': 'December', 'number': '12'}]
+    
     row_count = 1
+    # endregion
 
+    #First need to add correct buttons
+    if request.method == "POST":
+        if request.form.get('yearly_budget_add'):
+            row_count = row_count + 1
+        return render_template("index.html", months=months, row_count=row_count)
+            #pass # do something
+            #For add button
+            #Check how many rows are alredy in
+            #add one to their index
+            #incert row into table 
+            #and database (which one is better to do first?)
+            #maybe incerting row and incerting info into database are two diferent movements
+
+
+        #elif  request.form.get('action2') == 'VALUE2':
+            #pass # do something else
+            #For delete button
+            #get the id of the row
+            #detele that row from the list of rows
+            #splice the list back together
+            #delete should be next to each column
+            #as well as edit button
     return render_template("index.html", months=months, row_count=row_count)
     

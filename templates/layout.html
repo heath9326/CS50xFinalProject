@@ -13,6 +13,41 @@
         <link href="/static/styles.css" rel="stylesheet">
 
         <title>{% block title %}{% endblock %}</title>
+        <!--region--> 
+        <script src="https://kit.fontawesome.com/dfc5116c15.js" crossorigin="anonymous"></script>
+        
+        <script>
+            function addRows(){
+	            var table = document.getElementById('yearly_budget');//storing the table element in the "table variable"
+	            var rowCount = table.rows.length; //get the number of rows in the table
+	            var cellCount = table.rows[0].cells.length; //get the number of columns in the table
+                console.log(cellCount);
+	            var row = table.insertRow(rowCount); //created an empty row using the JavaScript property
+	            for(var i = 0; i < cellCount; i++){ //dynamically generated the cells within the empty row
+                    //var cell = 'cell'+i;
+                    var cell = row.insertCell(i);
+                    //var copycel = document.getElementById('col'+i).innerHTML; // take the name of col + the number
+		            //cell.innerHTML=copycel;
+				}
+                //Adding class, name and id to fresh cells:
+                
+                var text_class = 
+
+			}
+
+            function deleteRows(){
+                var table = document.getElementById('emptbl');
+                var rowCount = table.rows.length;
+                if(rowCount > '2'){
+                    var row = table.deleteRow(rowCount-1);
+                    rowCount--;
+                }
+                else{
+                    alert('There should be atleast one row');
+                }
+            }
+        </script>    
+    <!--endregion-->        
     </head>
 
     <body>

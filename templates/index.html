@@ -8,7 +8,7 @@
          <!--Yearly Budget-->
          <form action="/" method="post">
             <caption>Yearly Budget</caption>
-            <table class="table" id="yes">
+            <table class="table" id="yearly_budget">
                 <!--Header Row-->
                 <thead>
                     <tr>
@@ -20,19 +20,27 @@
                         {% endfor %}
                     </tr>
                 </thead>
+                {% for n in range(row_count) %}
                 <!--First Category Spending Row-->
                 <tr id="yb_row0{{row_count}}">
-                    <td id="yb_col0"><input type="text" name="Category Name"/></td>
+                        <td nowrap id="yb_col0">
+                            <input type="text" name="Category Name"/>
+                            <button type="button" class="btn_edit"><i class='far fa-edit'></i></button>
+                            <button type="button" class="btn_del"><i class='far fa-trash-alt'></i></button>
+                            <div class="spacer"></div>
+                        </td>
                     {% for month in months %}
-                        <td> <input id="yb_col{{month["number"]}}" type="number" name="{{month["name"]}}"/> </td>
+                        <td> 
+                            <input class="month" id="yb_col{{month["number"]}}" type="number" name="{{month["name"]}}"/> 
+                        </td>
                     {% endfor %}
                 </tr>
+                {% endfor %}
             </table>
             <!-- Buttons for Yearly Budget -->
             <table class="buttons">
                 <tr>
-                    <td><input type="button" value="Add Row" onclick="addRows()" id="yearly_budget_add"/></td>
-                    <td><input type="button" value="Delete Row" onclick="deleteRows()" id="yearly_budget_delete" /></td>
+                    <td><input type="button" value="Add Row" onclick="addRows()" id="yearly_budget_add" name="yearly_budget_add"/></td>
                     <td><input type="submit" value="Submit" id="yearly_budget_submit"/></td>
                 </tr>
             </table>

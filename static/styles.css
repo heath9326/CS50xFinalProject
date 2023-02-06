@@ -9,7 +9,32 @@ title {
 form td {
   text-align: center;
 }
+form td .btn_edit {
+  position: absolute;
+  float: right;
+  margin-left: 1px;
+}
+form td .btn_del {
+  position: absolute;
+  float: right;
+  margin-left: 31px;
+  margin-right: 31px;
+}
+form td td input {
+  float: left;
+}
+form td .spacer {
+  width: 100px;
+  margin: 0 -100px 0 0;
+  background: transparent;
+}
+form td .month {
+  width: 85px;
+}
 form table {
+  display: table;
+  table-layout: fixed;
+  /* Boarder Settings */
   border-color: black;
   border-style: solid;
   border-width: 1px 1px 1px 1px;
