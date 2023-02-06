@@ -42,10 +42,10 @@ def index():
     # endregion
 
     #First need to add correct buttons
-    if request.method == "POST":
-        if request.form.get('yearly_budget_add'):
-            row_count = row_count + 1
-        return render_template("index.html", months=months, row_count=row_count)
+    #if request.method == "POST":
+        #if request.form.get('yearly_budget_add'):
+            #row_count = row_count + 1
+        #return render_template("index.html", months=months, row_count=row_count)
             #pass # do something
             #For add button
             #Check how many rows are alredy in

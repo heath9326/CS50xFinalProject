@@ -19,20 +19,41 @@
         <script>
             function addRows(){
 	            var table = document.getElementById('yearly_budget');//storing the table element in the "table variable"
+                // Incerting new row and cells:
 	            var rowCount = table.rows.length; //get the number of rows in the table
-	            var cellCount = table.rows[0].cells.length; //get the number of columns in the table
-                console.log(cellCount);
-	            var row = table.insertRow(rowCount); //created an empty row using the JavaScript property
-	            for(var i = 0; i < cellCount; i++){ //dynamically generated the cells within the empty row
-                    //var cell = 'cell'+i;
+	            var cellCount = table.rows[0].cells.length; //get the number of cells in the table
+	            var row = table.insertRow(rowCount); //create an empty row
+	            for(var i = 0; i < cellCount; i++){ //dynamically generate the cells within the empty row
+                    // Grab the cell that is just has been added:
                     var cell = row.insertCell(i);
-                    //var copycel = document.getElementById('col'+i).innerHTML; // take the name of col + the number
-		            //cell.innerHTML=copycel;
-				}
-                //Adding class, name and id to fresh cells:
-                
-                var text_class = 
-
+                    var input = document.createElement("input"); //create empty <input> element
+                    cell.appendChild(input); //place <input> elemtent inside a new <td>
+                    // Fill attribute fields of new cells:
+                    if (i == 0){
+                        input.setAttribute("type","text");
+                        input.setAttribute("name","Category Name"); 
+                        // After "Category Name" cell insert buttons:
+                        // Edit button:
+                        var btn_edit = document.createElement("button"); 
+                        cell.appendChild(btn_edit);
+                        btn_edit.setAttribute("type", "button");
+                        btn_edit.setAttribute("class", "btn_edit");
+                        // Insert icon into the edit button:
+                        let icon = document.createElement('i');
+                        //console.log("I element is created");
+                        btn_edit.appendChild("icon");
+                        icon.setAttribute("class", "far fa-edit");
+                        // Delete button
+                        //var btn_del = document.createElement("button");
+                        //cell.appendChild(btn_del);
+                    } else {
+                        //!!!! "yb_col" and "month" properties ARE WORKING INCORRECTLY
+                        input.setAttribute("type","number");
+                        input.setAttribute("class", "month");
+                        input.setAttribute("id", "yb_col");
+                        input.setAttribute("name", "month");
+                    }
+                } 
 			}
 
             function deleteRows(){
