@@ -15,23 +15,23 @@
                         <td>Category Name</td>
                         {% for month in months %}
                             <td>
-                                {{ month["name"] }} 
+                                {{ month['name'] }} 
                             </td>
                         {% endfor %}
                     </tr>
                 </thead>
                 {% for n in range(row_count) %}
                 <!--First Category Spending Row-->
-                <tr id="yb_row0{{row_count}}">
-                        <td nowrap id="yb_col0">
+                <tr id="yb_row0{{n}}">
+                        <td nowrap id="yb_row0{{n}}-yb_col0">
                             <input type="text" name="Category Name"/>
                             <button type="button" class="btn_edit"><i class='far fa-edit'></i></button>
-                            <button type="button" class="btn_del"><i class='far fa-trash-alt'></i></button>
+                            <button type="button" class="btn_del" onclick="deleteRows()"><i class='far fa-trash-alt'></i></button>
                             <div class="spacer"></div>
                         </td>
                     {% for month in months %}
-                        <td> 
-                            <input type="number" class="month" id="yb_col{{month["number"]}}" name="{{month["name"]}}"/> 
+                        <td id="yb_row0{{n}}-yb_col{{month['number']}}"> 
+                            <input type="number" class="month" id="yb_col{{month['number']}}" name="{{month['name']}}"/> 
                         </td>
                     {% endfor %}
                 </tr>

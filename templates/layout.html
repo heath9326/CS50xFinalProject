@@ -23,6 +23,7 @@
 	            var rowCount = table.rows.length; //get the number of rows in the table
 	            var cellCount = table.rows[0].cells.length; //get the number of cells in the table
 	            var row = table.insertRow(rowCount); //create an empty row
+                row.setAttribute("id", "yb_row0{{row_count}}");
 	            for(var i = 0; i < cellCount; i++){ //dynamically generate the cells within the empty row
                     // Grab the cell that is just has been added:
                     var cell = row.insertCell(i);
@@ -39,13 +40,14 @@
                         btn_edit.setAttribute("type", "button");
                         btn_edit.setAttribute("class", "btn_edit");
                         // Insert icon into the edit button:
-                        let icon = document.createElement('i');
-                        //console.log("I element is created");
-                        btn_edit.appendChild("icon");
-                        icon.setAttribute("class", "far fa-edit");
+                        btn_edit.innerHTML = "<i class='far fa-edit'></i>";
                         // Delete button
-                        //var btn_del = document.createElement("button");
-                        //cell.appendChild(btn_del);
+                        var btn_del = document.createElement("button");
+                        cell.appendChild(btn_del);
+                        btn_del.setAttribute("type", "button");
+                        btn_del.setAttribute("class", "btn_del");
+                        btn_del.setAttribute("onclick", "deleteRows()");
+                        btn_del.innerHTML = "<i class='far fa-trash-alt'></i>";
                     } else {
                         //!!!! "yb_col" and "month" properties ARE WORKING INCORRECTLY
                         input.setAttribute("type","number");
@@ -57,15 +59,24 @@
 			}
 
             function deleteRows(){
-                var table = document.getElementById('emptbl');
-                var rowCount = table.rows.length;
-                if(rowCount > '2'){
-                    var row = table.deleteRow(rowCount-1);
-                    rowCount--;
+                var table = document.getElementById('yearly_budget');
+                var btn = event.target;
+                //if (btn == null) {
+                    //console.log("button not found");
+                //}
+                var row = btn.parentNode.parentNode;
+                if (row !== null) {
+                    console.log(row.id);
                 }
-                else{
-                    alert('There should be atleast one row');
-                }
+                //var rowCount = table.rows.length;
+                //if(rowCount > '2'){
+                    //var row = 
+                    //var row = table.deleteRow(rowCount-1);
+                    //rowCount--;
+                //}
+                //else{
+                    //alert('There should be atleast one row');
+                //}
             }
         </script>    
     <!--endregion-->        
