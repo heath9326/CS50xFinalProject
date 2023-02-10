@@ -9,27 +9,25 @@ title {
 form td {
   text-align: center;
 }
-form td .btn_edit {
+form td div {
+  display: inline;
+  margin-right: 45px;
+}
+form td div .btn_edit {
+  width: 21px;
   position: absolute;
-  float: right;
   margin-left: 1px;
 }
-form td .btn_del {
+form td div .btn_del {
+  width: 21px;
   position: absolute;
-  float: right;
-  margin-left: 31px;
-  margin-right: 31px;
+  margin-left: 23px;
 }
 form td td input {
   float: left;
 }
-form td .spacer {
-  width: 100px;
-  margin: 0 -100px 0 0;
-  background: transparent;
-}
 form td .month {
-  width: 85px;
+  width: 80px;
 }
 form table {
   display: table;

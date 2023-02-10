@@ -10,30 +10,31 @@ title {
 form {
     td {
         text-align: center;
+        
+        div {
 
-        .btn_edit {
-            position: absolute;
-            float: right;
-            margin-left: 1px;
+            display: inline;
+            margin-right: 45px;
+
+            .btn_edit {
+                width: 21px;
+                position: absolute;
+                margin-left: 1px;
+            }
+
+            .btn_del {
+                width: 21px;
+                position: absolute;
+                margin-left: 23px;
+            }
         }
-        .btn_del {
-            position: absolute;
-            float: right;
-            margin-left: 31px;
-            margin-right: 31px;
-        }
+
         td input {
             float: left;
         }
 
-        .spacer {
-            width: 100px;
-            margin: 0 -100px 0 0;
-            background: transparent;
-        }
-
         .month{
-            width: 85px;
+            width: 80px;
         }
     }
 
